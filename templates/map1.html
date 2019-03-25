@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+  <link rel="stylesheet" href="static/css/style6.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.4/leaflet.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.4/leaflet.js"></script>
+  <script src="https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster.js">
+  </script>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <div class="container justify-content-center"> <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar15">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse text-center justify-content-center" id="navbar15">
+        <ul class="navbar-nav">
+          <li class="nav-item mx-2"> <a class="nav-link" href="/index"><b>首页</b></a> </li>
+          <li class="nav-item mx-2 text-white"> <a class="nav-link" href="/route"><b>推荐路线</b></a> </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h1 class=""><b>路线一：哈尔滨一日游</b></h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 p-3"> <img class="img-fluid d-block" src="http://b4-q.mafengwo.net/s12/M00/42/54/wKgED1v-RcGALRNtABAouBhY5ZA349.png?imageView2%2F2%2Fw%2F1360%2Fq%2F90" width="1500">
+          <h1 class="">玩在哈尔滨</h1>
+          <ul class="">
+            <li>中央大街：街道两侧都是俄式建筑，拿根冰糖葫芦、马迭尔冰棍或者是飘香四溢的烤肠边走边逛，一定是你东北之行的独特体验。中央大街上还有很多知名的美食店，无论是逛还是吃还是买伴手礼，这条步行街都能满足你。</li>
+            <li>防洪纪念塔：这里有许多冰上娱乐项目，冻得结结实实的松花江冰面上可以走人和马车，冰滑梯30元/人，狗拉爬犁20元/人，冰爬犁20元/人，冰上飞碟20元/人。 </li>
+            <li>冰雪大世界：全国最大的冰雪景观，每年一般十二月末开园，白天可以玩各种雪上项目，到了晚上晶莹剔透的冰砖配上五彩缤纷的灯光，如同置身童话世界。门票全价330元，网络票310元/，学生票200元。可以在中央大街附近47路公交车直达。</li>
+          </ul>
+        </div>
+        <div class="col-md-6 p-3"> <img class="img-fluid d-block" src="http://n3-q.mafengwo.net/s12/M00/45/5F/wKgED1v_POuAbNiVABHQG5w7Ktk393.png?imageView2%2F2%2Fw%2F1360%2Fq%2F90" width="1500">
+          <h1 class="">吃在哈尔滨</h1>
+          <p class="mt-2 mb-0">哈尔滨的美食既有东北菜也有俄式西餐，锅包肉、铁锅炖、东北饺子、冰糖葫芦、烤冷面、马迭尔冰棍、大列巴、格瓦斯、哈尔滨红肠，这些都是哈尔滨的特色美食。&nbsp;</p>
+          <li>东北菜推荐：毛毛熏肉大饼、东方饺子王、老昌春饼、老厨家、张包铺、老鼎丰糕点 </li>
+          <li>俄餐推荐：华梅西餐厅、波特曼西餐厅、马迭尔西餐厅 </li>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div id="map" style="width: 800px; height: 440px; border: 1px solid #AAA; margin-left: auto;margin-right: auto;"></div>
+    <div id="play" style="text-align:center; padding: 25px">
+    </div>
+    <script>
+      var mapboxTiles = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a>',
+        maxZoom: 18,
+      })
+      var map = L.map('map').addLayer(mapboxTiles).setView([45.778685, 126.611324], 14);
+      var marker = L.marker([45.775104, 126.621036], {
+        draggable: true
+      }).bindPopup('<a href="https://baike.baidu.com/item/%E4%B8%AD%E5%A4%AE%E5%A4%A7%E8%A1%97/14811" target="_blank">中央大街</a>').addTo(map);
+      var marker = L.marker([45.770397, 126.627179], {
+        draggable: true
+      }).bindPopup('<a href="https://baike.baidu.com/item/%E5%9C%A3%C2%B7%E7%B4%A2%E8%8F%B2%E4%BA%9A%E6%95%99%E5%A0%82/1464807?fromtitle=%E5%9C%A3%E7%B4%A2%E8%8F%B2%E4%BA%9A%E6%95%99%E5%A0%82&fromid=6484660">圣索菲亚教堂</a>').addTo(map);
+      var marker = L.marker([45.778685, 126.611324], {
+        draggable: true
+      }).bindPopup('<a href="https://baike.baidu.com/item/%E9%98%B2%E6%B4%AA%E7%BA%AA%E5%BF%B5%E5%A1%94/157028" target="_blank">防洪纪念塔</a>').addTo(map);
+      var marker = L.marker([45.771136, 126.579424], {
+        draggable: true
+      }).bindPopup('<a href="https://baike.baidu.com/item/%E4%B8%AD%E5%9B%BD%C2%B7%E5%93%88%E5%B0%94%E6%BB%A8%E5%86%B0%E9%9B%AA%E5%A4%A7%E4%B8%96%E7%95%8C?fromtitle=%E5%86%B0%E9%9B%AA%E5%A4%A7%E4%B8%96%E7%95%8C&fromid=2094035" target="_blank">冰雪大世界</a>').addTo(map);
+    </script>
+  </div>
+  <div class="py-3 bg-dark text-white">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 col-6 p-3 text-white">
+          <p class="text-white">The Chinese University of Hong Kong, Sha Tin. N.T, New Territories, Hong Kong</p>
+          <p class="text-white">+852-6047 8382</p>
+          <p class="mb-0">sunguanlin2020@gmail.com</p>
+        </div>
+        <div class="col-md-6 p-3">
+          <h5> <b>About</b> </h5>
+          <p class="mb-0"> It's a final project of COMM 5961</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+</body>
+
+</html>

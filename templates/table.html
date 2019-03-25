@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+  <link rel="stylesheet" href="static/css/theme.css" type="text/css">
+</head>
+<body>
+  <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <div class="container justify-content-center"> <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar15">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse text-center justify-content-center" id="navbar15">
+        <ul class="navbar-nav">
+          <li class="nav-item mx-2"> <a class="nav-link" href="/index"><b>首页</b></a> </li>
+          <li class="nav-item mx-2"> <a class="nav-link" href="/table"><b>热门景点</b></a> </li>
+          <li class="nav-item mx-2"> <a class="nav-link" href="/food"><b>必吃美食</b></a> </li>
+          <li class="nav-item mx-2 text-white"> <a class="nav-link" href="/route"><b>推荐路线</b></a> </li>
+          <li class="nav-item mx-2"> <a class="nav-link" href="/chart"><b>会员信息</b></a> </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="py-5 text-center text-md-right" style="	background-position: top left, bottom;	background-size: 100%, cover;	background-repeat: repeat, repeat;	background-attachment: fixed;	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.20), rgba(0, 0, 0, 0.70)), url(static/img/201612716546352.jpg);">
+    <div class="container">
+      <div class="row">
+        <div class="p-5 mx-auto mx-md-0 ml-md-auto col-10 col-md-9">
+          <h3 class="display-3 text-light"><b>热门景点</b></h3>
+          <p class="mb-3 lead text-white" style="">松花江蜿蜒穿过哈尔滨，涤荡着这座百年冰城；雾凇岛上，冬捕的号子声那么响亮，洗尽铅华，夜幕下沈阳故宫仿佛吟诗般讲述着她如梦似幻的前世今生。来东北，邂逅白山黑水间的温柔与浪漫，见证关于冰雪和森林的童话。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+<section id="about-us">
+   <div class="container">
+       <div class="skill-wrap clearfix">
+        <div class="center wow fadeInDown">
+         <h1>热门景点top25</h1>
+         <p class="lead">
+       东北旅游的景点有哪些，快来看一看吧！</p>
+       </div>
+           <div class="table-responsive">
+           <table id="myTable" width="100%"  class="display">
+             <thead>
+               <tr>
+                 <th>景点</th>
+                 <th>省份</th>
+                 <th>城市</th>
+                 <th>游玩时间</th>
+                 <th>季节</th>
+                 <th>票价</th>
+               </tr>
+             </thead>
+             <tbody>
+                {% for row in  entries  %}
+                   <tr>
+                     <td>{{ row["spot"] }}</td>
+                     <td>{{ row["province"] }}</td>
+                     <td>{{ row["city"] }}</td>
+                     <td>{{ row["time"] }}</td>
+                     <td>{{ row["season"] }}</td>
+                     <td>{{ row["ticket"] }}</td>
+                   </tr>
+                 {% endfor %}
+             </tbody>
+         </table>
+       </div><!--end container-->
+     </div>
+ </section>
+ <script>
+       $(document).ready(function(){
+           $('#myTable').DataTable({
+             "paging":   true,
+             "ordering": true,
+             "searching": true
+           });
+       });
+ </script>
+ <div class="py-3 bg-dark text-white">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 col-6 p-3 text-white">
+          <p class="text-white">The Chinese University of Hong Kong, Sha Tin. N.T, New Territories, Hong Kong</p>
+          <p class="text-white">+852-6047 8382</p>
+          <p class="mb-0">sunguanlin2020@gmail.com</p>
+        </div>
+        <div class="col-md-6 p-3">
+          <h5> <b>About</b> </h5>
+          <p class="mb-0"> It's a final project of COMM 5961</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <p class="mb-0 mt-2">© 2014-2018 Pingendo. All rights reserved</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+ </body>
+
+</html>
+
